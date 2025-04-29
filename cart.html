@@ -59,6 +59,57 @@
         mark{
             background-color: pink;
         }
+        /* Hamburger styles */
+.hamburger {
+    display: none;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+/* Mobile nav toggle */
+@media screen and (max-width: 768px) {
+    .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    .nav img {
+        margin: 0 0 10px 0;
+        height: 100px;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav a {
+        width: 100%;
+        text-align: left;
+        margin: 5px 0;
+    }
+
+    .hamburger {
+        display: block;
+    }
+}
+.nav img {
+    height: 50px;
+    margin-right: 10px;
+    object-fit: contain; /* ensures logo doesn't stretch */
+}
+
+
     
     </style>
 </head>
@@ -66,11 +117,15 @@
 
     <header>
         <div class="nav">
-            <a href="index.html">Home</a>
-            <a href="product.html">Products</a>
-            <a href="cart.html">View Cart</a>
-            <a href="login.html">Login</a>
-            <a href="signup.html">Sign Up</a>
+            <img src="logo.jpg" alt="Business Logo">
+            <div class="hamburger" onclick="toggleNav()">☰</div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="product.html">Products</a>
+                <a href="cart.html">View Cart</a>
+                <a href="login.html">Login</a>
+                <a href="signup.html">Sign Up</a>
+            </div>
         </div>
     </header>
     
@@ -126,6 +181,13 @@
         
         displayCart();
     </script>
+    <script>
+        function toggleNav() {
+          const navLinks = document.querySelector('.nav-links');
+          navLinks.classList.toggle('show');
+        }
+      </script>
+      
     <footer ><marquee behavior="" scrollamount="50" direction="right"> <img src="./giphy.gif" alt="" height="auto" width="150px"> </marquee></footer>
 </body>
 </html>
